@@ -1,14 +1,3 @@
-bl_info = {
-    "name": "New Rhino Object - A Blender 4 Rhino",
-    "author": "Alan Mattano, Soaring Stars lab",
-    #"co-authors": "Adri. Negro, ",
-    "version": (0, 7),
-    "blender": (2, 81, 0),
-    "location": "View3D > Add > Mesh > New Rhino Object",
-    "description": "Adds a new Mesh Object - A Blender 4 Rhino",
-    "warning": "",
-    "wiki_url": "https://github.com/ALanMAttano/Blender_4_Rhino",
-    "category": "Add Mesh",
 }
 
 
@@ -26,9 +15,9 @@ class OBJECT_OT_add_object(Operator, AddObjectHelper):
 
     def execute(self, context):        
         
-        full_path_to_file = "X:\DoNotMove\Rhino-Blender-mesh.obj"
+        full_path_to_file = "C:\DoNotMove\Rhino-Blender-mesh.obj"
         # bpy.ops.import_scene.obj(filepath=full_path_to_file)
-        bpy.ops.import_scene.obj(filepath=full_path_to_file, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl")
+        bpy.ops.import_scene.obj(filepath=full_path_to_file, global_clamp_size=1, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl")
 
         return {'FINISHED'}
 
@@ -58,8 +47,8 @@ class OBJECT_OT_add_objectexport(Operator, AddObjectHelper):
     def execute(self, context):        
         
         print("Exporting...")
-        full_path_to_file = "X:\DoNotMove\Rhino-Blender-mesh.obj"
-        bpy.ops.export_scene.obj(filepath=full_path_to_file, use_selection=True)
+        full_path_to_file = "C:\DoNotMove\Rhino-Blender-mesh.obj"
+        bpy.ops.export_scene.obj(filepath=full_path_to_file, global_scale=1000, use_selection=True)
 
         return {'FINISHED'}
 
